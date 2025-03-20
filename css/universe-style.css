@@ -12,3 +12,11 @@ body{
   color: #F7F7FF;
   font-family: 'Courier New', Courier, monospace;
 }
+
+.header{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
