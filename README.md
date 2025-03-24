@@ -1,1 +1,1 @@
-# maplefennic.github.io
+![site icon](/img/black.ico "maplefennic")
