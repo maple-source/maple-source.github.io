@@ -57,12 +57,36 @@ body{
     top: 0;
     border-bottom: 2px solid #858585;
     background-color: #00171F;
+	z-index: 1;
 }
 
 .content_field{    
     display: flex;
     flex: 100%;
+	min-height: 1600px;
+	align-items: center;
     justify-content: center;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.drop{
+	display: inline-block;
+	z-index: 0;
+}
+
+.drop-content {
+	display: none;
+	position: absolute;
+	background-color: #4e4343;
+	padding: 3px 3px;	
+	border-radius: 5px;
+}
+   
+.drop:hover .drop-content {
+	display: block;
+}
+
+.drop:hover .drop-content a:hover{
+	color: #F38EF5;
 }
