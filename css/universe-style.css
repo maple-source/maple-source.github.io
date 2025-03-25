@@ -59,12 +59,10 @@ body{
     background-color: #00171F;
 }
 
-.content_field{
-    flex: 100%;
-    height: 5000px;
+.content_field{    
     display: flex;
+    flex: 100%;
     justify-content: center;
     margin-left: 5%;
     margin-right: 5%;
-    background-color: #858585;
 }
