@@ -20,8 +20,24 @@ body{
     background-color: #00171F;
     color: #F7F7FF;
     font-family: VT323;
-    font-size: 20px;
+    font-size: 30px;
     margin: 0px;
+}
+
+h1{
+    font-size: 80px;
+    font-weight: normal;
+    margin: 10px;
+}
+
+a{
+    text-decoration: underline;
+    color: #F7F7FF;
+}
+
+a:hover{
+    text-decoration: none;
+    color:  #858585;
 }
 
 .navbar{
@@ -57,36 +73,35 @@ body{
     top: 0;
     border-bottom: 2px solid #858585;
     background-color: #00171F;
-	z-index: 1;
+    z-index: 1;
 }
 
 .content_field{    
-    display: flex;
+    display:  flex;
     flex: 100%;
-	min-height: 1600px;
-	align-items: center;
     justify-content: center;
     margin-left: 5%;
     margin-right: 5%;
 }
 
 .drop{
-	display: inline-block;
-	z-index: 0;
+    display: inline-block;
+    z-index: 0;
 }
 
 .drop-content {
-	display: none;
-	position: absolute;
-	background-color: #4e4343;
-	padding: 3px 3px;	
-	border-radius: 5px;
+    display: none;
+    position: absolute;
+    background-color: #4e4343;
+    padding: 3px 3px;	
+    border-radius: 5px;
 }
    
 .drop:hover .drop-content {
-	display: block;
+    display: block;
 }
 
 .drop:hover .drop-content a:hover{
-	color: #F38EF5;
+    color: #F38EF5;
 }
+
