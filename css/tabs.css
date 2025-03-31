@@ -1,11 +1,15 @@
-.tab{
-
-}
 
 .tab button{
+    border: 3px inherit;
+    font-family: VT323;
+    font-size: 30px;
     color: inherit;
     background-color: inherit;
     transition: 0.3s;
+}
+
+.tab button:active{
+    background-color: #4e4343;
 }
 
 .content{

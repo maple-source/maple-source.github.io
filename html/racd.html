@@ -73,30 +73,28 @@
                 <li>layer effects</li>
             </ul>
         </div>
-        <div class="content_page">
-            <table>
-                <tr>
-                    <td colspan="3"><h3>Structure</h3></td>
-                </tr>
-                <tr class="tab">
-                    <td><button>Head</button></td>
-                    <td><button>Frames</button></td>
-                    <td><button>Behavior</button></td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <div id="Head" class="content">
-                            hello
-                        </div>
-                        <div id="Frames" class="content">
-                            world
-                        </div>
-                        <div id="Behavior" class="content">
-                            hello world
-                        </div>
-                    </td>
-                </tr>
-            </table>
+        <div class="content_page tab" style="min-height: 400px;">
+            <h3>Structure</h3>
+            <button onclick="display('Head')">Header and Metadata</button>
+            <button onclick="display('Frames')">Frame Blocks</button>
+            <button onclick="display('Behavior')">Behavior Byte</button>
+            <button onclick="display('Error')">Error Codes</button>
+            <div id="Head" class="content" style="display: block;">
+                <h3>Header and Metadata</h3>
+                <p></p>
+            </div>
+            <div id="Frames" class="content">
+                <h3>Frame Blocks</h3>
+                <p></p>
+            </div>
+            <div id="Behavior" class="content">
+                <h3>Behavior Byte</h3>
+                <p></p>
+            </div>
+            <div id="Error" class="content">
+                <h3>Error Codes</h3>
+                <p></p>
+            </div>
         </div>
     </div>
 </body>
