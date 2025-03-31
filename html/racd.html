@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/universe-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/tabs.css">
     <link rel="icon" type="image/x-icon" href="../img/black.ico">
     <script src="../java/racd.js"></script>
     <title>MAPLEFENNIC</title>
@@ -29,11 +30,74 @@
                 <a href="racd.html">RACD</a>
             </div>
         </div>
-        <a href="colection.html">Colection</a>
+        <a href="colection.html">Collection</a>
     </div>
     <div class="content_field">
-        <div><h1>RACD</h1></div>
-        <div><p>The .racd file format, or by the full name: <a href="https://www.gridsagegames.com/rexpaint/">RexPaint</a> Animated Compressed Document, is a custom built file structure intented to add anaimation to the software's capibility.</p></div>
+        <div class="content_page">
+            <h1>
+                RACD
+            </h1>
+        </div>
+        <div class="content_page">
+            <h3>
+                Objective
+            </h3>
+            <p>
+                The .racd file format, or by the full name: <a href="https://www.gridsagegames.com/rexpaint/" target="_blank">RexPaint</a>
+                Animated Compressed Document, is a custom built file structure intended to add animation to the software's capability.
+                Rexpaint supports export in several file formats including .xp and .csv files, in the interest of compatibility a .racd file can be compiled from either
+                a folder of .csv or .xp files or a single .xp file utilizing the layers created by Rexpaint as different frames. The project as a whole is intended to 
+                enable the use of Rexpaint as a tool for sprite animation for use in graphics libraries such as <a href="https://github.com/libtcod/libtcod" target="_blank">LibTcod</a>
+                and <a href="https://github.com/tommyettinger/BearLibTerminal" target="_blank">BearLibTerminal</a>.
+            </p>
+            <h3>
+                Overview 
+            </h3>
+            <p>
+                .racd is a compiled binary format, the file data itself is created at runtime within the compile program, stripping redundant and repeating data 
+                in addition to identifying error cases in the event of missing files, frames, or corrupted input. Due to this nature as a binary format a hex editor
+                is the only option to directly edit a .racd file at this time. This is not recommended, as much of the data contained in the RACD format is NOT PARSED
+                BY BYTES. Many of the data fields used by the format are only a few bits in size, As these fields are combined for the process of compilation, 
+                editing the wrong bytes of a .racd file may result in the corruption of the entire file, making it unreadable. should edits be made to an animation 
+                it is heavily recommended to recompile the file rather than editing it. Components stored within a .racd file include but are not limited to:
+            </p>
+            <ul style="text-align: left; list-style-type: square;">
+                <li>Character encoding type</li>
+                <li>Framerate</li>
+                <li>Animation timing</li>
+                <li>Color</li>
+                <li>Background Color</li>
+                <li>Position</li>
+                <li>Replace effects</li>
+                <li>Fade effects</li>
+                <li>layer effects</li>
+            </ul>
+        </div>
+        <div class="content_page">
+            <table>
+                <tr>
+                    <td colspan="3"><h3>Structure</h3></td>
+                </tr>
+                <tr class="tab">
+                    <td><button>Head</button></td>
+                    <td><button>Frames</button></td>
+                    <td><button>Behavior</button></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div id="Head" class="content">
+                            hello
+                        </div>
+                        <div id="Frames" class="content">
+                            world
+                        </div>
+                        <div id="Behavior" class="content">
+                            hello world
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 

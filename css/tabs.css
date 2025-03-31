@@ -1,0 +1,13 @@
+.tab{
+
+}
+
+.tab button{
+    color: inherit;
+    background-color: inherit;
+    transition: 0.3s;
+}
+
+.content{
+    display: none;
+}

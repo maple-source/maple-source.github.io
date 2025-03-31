@@ -1,1 +1,1 @@
-![site icon](/img/black.ico "maplefennic")
+![site icon](/img/white.ico "maplefennic")

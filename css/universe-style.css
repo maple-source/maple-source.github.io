@@ -30,6 +30,12 @@ h1{
     margin: 10px;
 }
 
+h3{
+    font-size: 50px;
+    font-weight: normal;
+    margin: 3px;
+}
+
 a{
     text-decoration: underline;
     color: #F7F7FF;
@@ -76,12 +82,16 @@ a:hover{
     z-index: 1;
 }
 
-.content_field{    
-    display:  flex;
-    flex: 100%;
-    justify-content: center;
-    margin-left: 5%;
-    margin-right: 5%;
+.content_field{
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    margin: auto;
+}
+
+.content_page{
+    align-self: center;
+    text-align: center;
 }
 
 .drop{
