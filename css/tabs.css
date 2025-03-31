@@ -6,7 +6,7 @@
     color: inherit;
     background-color: inherit;
     transition: 0.3s;
-    padding: 3px;
+    margin: 3px;
 }
 
 .tab button:active{
