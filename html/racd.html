@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/tabs.css">
     <link rel="icon" type="image/x-icon" href="../img/black.ico">
     <script src="../java/racd.js"></script>
-    <title>MAPLEFENNIC</title>
+    <title>RACD</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <div class="drop">
             <a href="hardware.html">Hardware</a>
             <div class="drop-content">
-                <a href="fennic39.html">Fennic39</a>
+                <a href="fennec39.html">Fennec39</a>
                 <a href="kitfox.html">KitFox</a>
                 <a href="kitpaw.html">KitPaw</a>
             </div>
@@ -120,12 +120,12 @@
                         <tr>
                             <td>2</td>
                             <td>0-7</td>
-                            <td>framerate</td>
+                            <td>framerate (ms)</td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>0</td>
-                            <td>reserved code</td>
+                            <td>reserved bit</td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -139,19 +139,40 @@
                         </tr>
                     </table>
                 </div>
-
+                <p>
+                    This format allows for 32,767 frames in total animated between 1000fps and ~4fps and up to animation on 15's.
+                </p>
+                <p>
+                    A binary example of a .racd header: 
+                </p>
+                <p>
+                    00110111 00100010 00000000 00000101 
+                    <br>
+                    0011(animate on 3's) 01(custom id) 1(loop) 1(Unicode) 
+                    <br>
+                    00100010(18ms / 55fps)
+                    <br>
+                    00000000 00000101(5 frames)
+                </p>
             </div>
             <div id="Frames" class="content">
                 <h3>Frame Blocks</h3>
-                <p></p>
+                <p>
+
+                </p>
             </div>
             <div id="Behavior" class="content">
                 <h3>Behavior Byte</h3>
-                <p></p>
+                <p>
+
+                </p>
             </div>
             <div id="Error" class="content">
                 <h3>Error Codes</h3>
-                <p></p>
+                <p>
+                    There are three reserved bits in the format for the purpose of error checking one in the head, one in each frame count, and one in the behavior byte of each
+                    tile. of these, the 
+                </p>
             </div>
         </div>
     </div>
