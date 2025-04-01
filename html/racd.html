@@ -170,8 +170,22 @@
             <div id="Error" class="content">
                 <h3>Error Codes</h3>
                 <p>
-                    There are three reserved bits in the format for the purpose of error checking one in the head, one in each frame count, and one in the behavior byte of each
-                    tile. of these, the 
+                    There are three reserved bits in the format for the purpose of error checking. One in the head, one in each frame count, and one in the behavior byte of each
+                    tile. Of these, the reserved bits in the head and tile fields are fatal to the file, and no read will be completed.
+                </p>
+                <p>
+                    Ideally no error codes are required as a unreadable file should not compile at all, however these errors are left as a check anyways for runtime. Each code serves
+                    a different role:
+                </p>
+                <p>
+                    Head - byte 3 bit 0: <span style="color: crimson;">Fatal</span>: No file / frames exist OR source file invalid and ignored.
+                </p>
+                <p>
+                    Frame Count - byte 1 bit 0: <span style="color: chartreuse;">Recoverable</span>: Missing or corrupted frame block, enters search for next frame count bytes. This is not perfect
+                    and is dependent on content present but offers a possibility of recovery.
+                </p>
+                <p>
+                    Tile Behavior - byte 1 bit 0: <span style="color: crimson;">Fatal</span>: Tile is incorrect and unreadable, behavior is not correct and no data thereafter is reachable. 
                 </p>
             </div>
         </div>
