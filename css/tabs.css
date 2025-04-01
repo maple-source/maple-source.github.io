@@ -16,3 +16,7 @@
 .content{
     display: none;
 }
+
+.grid{
+    border: 2px solid #858585;
+}

@@ -7,4 +7,4 @@ function display(section) {
     }
     console.log("display " + section)
     document.getElementById(section).style.display = "block";
-  }
+}

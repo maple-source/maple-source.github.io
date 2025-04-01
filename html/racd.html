@@ -81,7 +81,65 @@
             <button onclick="display('Error')">Error Codes</button>
             <div id="Head" class="content" style="display: block;">
                 <h3>Header and Metadata</h3>
-                <p></p>
+                <p>
+                    The head of a .racd file is the only section of the file that is static in length and contains data on: encoding, framerate, animation timing,
+                    number of frames as well as bool values that determine the presence of a loop or custom id to the file.
+                </p>
+                <p>
+                    Data contained within the head is divided into four bytes, this is the fixed length of this field, and is the constriction placed on the format.
+                    the full structure is as follows:
+                    
+                </p>
+                <div class="content_field">
+                    <table class="grid">
+                        <tr>
+                            <td><h3>Byte</h3></td>
+                            <td><h3>Bit(s)</h3></td>
+                            <td><h3>Role</h3></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0-3</td>
+                            <td>animation timing</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>4-5</td>
+                            <td>custom id</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>6</td>
+                            <td>loop</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>7</td>
+                            <td>encoding (0 ascii / 1 unicode)</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0-7</td>
+                            <td>framerate</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>reserved code</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>1-7</td>
+                            <td>frames</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>0-7</td>
+                            <td>frames</td>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
             <div id="Frames" class="content">
                 <h3>Frame Blocks</h3>
