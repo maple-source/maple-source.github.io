@@ -146,25 +146,97 @@
                     A binary example of a .racd header: 
                 </p>
                 <p>
-                    00110111 00100010 00000000 00000101 
+                    00110111 00010010 00000000 00000101 
                     <br>
                     0011(animate on 3's) 01(custom id) 1(loop) 1(Unicode) 
                     <br>
-                    00100010(18ms / 55fps)
+                    00010010(18ms / 55fps)
                     <br>
                     00000000 00000101(5 frames)
                 </p>
             </div>
             <div id="Frames" class="content">
-                <h3>Frame Blocks</h3>
+                <h3>Frame Blocks</h3>    
                 <p>
-                    
+                    Frame blocks stor the data for each frame, they consist of a frame count of two bytes and a indeterminate length of tile fields that contain behavior, position and color. While the frame 
+                    number is a set length the tiles are not, their length is determined by the behavior byte at the start of each tile; depending on which bits of this byte are set the tile can range in 
+                    length between five and fifteen bytes. this is also affected by the encoding type of the file, as two bytes are needed for unicode. a frame block's length is not known until the last 
+                    tile in the block, which indicates to the parser to look for a frame count after the tile. This is the frame count bytes:
+                </p>
+                <div class="content_field">
+                    <table class="grid">
+                        <tr>
+                            <td><h3>Byte</h3></td>
+                            <td><h3>Bit(s)</h3></td>
+                            <td><h3>Role</h3></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>reserved code</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1-7</td>
+                            <td>frame number</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0-7</td>
+                            <td>frame number</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>
+                    This is a tile field:
+                </p>
+                <p>
+                    <span style="color: chartreuse;">Static length</span> byte 1, bits 0-7: Behavior, see behavior byte tab.
+                </p>
+                <p>
+                    <span style="color: chartreuse;">Static length</span> bytes 2&3, bits 0-15: x-position.
+                </p>
+                <p>
+                    <span style="color: chartreuse;">Static length</span> bytes 4&5, bits 0-15: Y-position.
+                </p>
+                <p>
+                    <span style="color: crimson">Variable length</span> 0; 1-2 bytes: character code in either one ascii byte or two unicode bytes.
+                </p>
+                <p>
+                    <span style="color: crimson">Variable length</span> 0; 3-8 bytes: color, argb or rgb, with or without background color.
                 </p>
             </div>
             <div id="Behavior" class="content">
                 <h3>Behavior Byte</h3>
                 <p>
-
+                    The behavior byte is a component of every tile in a frame block, and is responsible for how and when that tile is displayed during the animation in addition to 
+                    everything related to the tile field and frame block except the text encoding. this is accomplished by dividing the byte into 8 bool values each representing a flag for 
+                    the parser to acknowledge and adapt to, as many of the flags change the length of the tile field.
+                </p>
+                <p> Behavior codes:</p>
+                <p>
+                    Bit <span style="color: chartreuse;">0</span>: reserved code.
+                </p>
+                <p>
+                    Bit <span style="color: chartreuse;">1</span>: null tile, no code or color, only position will be read.
+                </p>
+                <p>
+                    Bit <span style="color: chartreuse;">2</span>: transparent, no background color.
+                </p>
+                <p>
+                    Bit <span style="color: chartreuse;">3</span>: argb, 4 byte color values instead of 3.
+                </p>
+                <p>
+                    Bit <span style="color: chartreuse;">4</span>: layer, tile will be added over the previous frame without removing it.
+                </p>
+                <p>
+                    Bit <span style="color: chartreuse;">5</span>: fade, lowers the alfa value of the previous frame.
+                </p>
+                <p>
+                    Bit <span style="color: chartreuse;">6</span>:  break, removes only the oldest layered frame, if break and fade are both true break will apply first.
+                </p>
+                <p>
+                    Bit <span style="color: chartreuse;">7</span>: end of frame block, searches for frame count after tile.
                 </p>
             </div>
             <div id="Error" class="content">
