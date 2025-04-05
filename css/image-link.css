@@ -1,6 +1,7 @@
 .block_link {
     position: relative;
-    width: 100%;
+    width: 50%;
+    margin: auto;
 }
   
   .image {
