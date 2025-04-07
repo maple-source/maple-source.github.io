@@ -46,6 +46,10 @@ a:hover{
     color:  #858585;
 }
 
+img{
+    visibility: auto;
+}
+
 .navbar{
     width: 100%;
     display: flex;
